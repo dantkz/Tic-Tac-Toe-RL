@@ -1,0 +1,42 @@
+//
+// Implementation of Q-Learning algorithm
+//
+#ifndef QLEARNER_H 
+#define QLEARNER_H
+
+#include "State.h"
+#include "Action.h"
+#include "Agent.h"
+#include "Egreedy.h"
+
+#include <memory>
+#include <vector>
+#include <map>
+
+namespace rlearning
+{
+    // The starting policy is epsilon-greedy.
+    class Qlearner : public Egreedy{
+        public:
+            Qlearner(){
+                epsilon = 0.05;
+                gamma = 0.9;
+                alpha = 0.1;
+            };
+            std::shared_ptr<Action> GetAction(std::shared_ptr<State> state) {return Egreedy::GetAction(state);};
+
+            // Not applicable
+            virtual void SetReward(std::shared_ptr<State>, std::shared_ptr<Action>, double) {};
+
+            void SetReward(std::shared_ptr<State>, std::shared_ptr<Action>,
+                           std::shared_ptr<State>, std::shared_ptr<Action>, 
+                           double);
+
+            // Reward decay.
+            double gamma;
+            // Step-size parameter.
+            double alpha;
+    };
+}
+
+#endif
