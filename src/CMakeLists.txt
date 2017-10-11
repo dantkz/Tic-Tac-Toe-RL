@@ -4,9 +4,8 @@ message(${LIB_INCLUDE_DIR})
 
 include_directories(${LIB_INCLUDE_DIR})
 add_executable(Train Train.cpp)
-target_link_libraries(Train rflib)
+target_link_libraries(Train reinforcelib)
 
 add_executable(Play Play.cpp)
-target_link_libraries(Play rflib)
+target_link_libraries(Play reinforcelib)
 
-#INSTALL(TARGETS Train Play DESTINATION ${PROJECT_BIN_DIR}/bin)

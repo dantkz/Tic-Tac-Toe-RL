@@ -18,7 +18,7 @@ link_libraries( ${Boost_LIBRARIES} )
 include_directories(${Boost_INCLUDE_DIR})
 include_directories(${LIB_INCLUDE_DIR})
 
-add_library( rflib ${LIB_SOURCES} ${LIB_HEADERS} )
+add_library( reinforcelib ${LIB_SOURCES} ${LIB_HEADERS} )
 link_directories(${Boost_LIBRARY_DIR})
 
 add_subdirectory(src)
